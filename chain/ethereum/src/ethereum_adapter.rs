@@ -1095,7 +1095,7 @@ impl EthereumAdapter {
 fn detect_null_block<T>(res: &Result<T, Error>) -> bool {
     match res {
         Ok(_) => false,
-        Err(e) => e.to_string().contains("requested epoch was a null round"),
+        Err(e) => e.to_string().contains("requested epoch was a null round") || e.to_string().contains("result: null"),
     }
 }
 
